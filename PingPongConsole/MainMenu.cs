@@ -21,7 +21,7 @@ namespace PingPongConsole
             Console.SetCursorPosition(posX, 1);
             Console.Write(" | _ \\/ _ \\| \\| |/ __|");
             Console.SetCursorPosition(posX, 2);
-            Console.Write(" |  _/ (_) | .` | (_ |");
+            Console.Write(" |  _/ (_) | .` | (_┌┐");
             Console.SetCursorPosition(posX, 3);
             Console.WriteLine(" |_|  \\___/|_|\\_|\\___|");
             Console.ForegroundColor = ConsoleColor.White;
