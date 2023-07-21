@@ -51,6 +51,7 @@ namespace PingPongConsole
         /// <param name="posX"></param>
         public void PrintTwoPlayers(int posX)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.SetCursorPosition(posX, 13);
             Console.Write("  ___   ___ _                   ");
             Console.SetCursorPosition(posX, 14);
@@ -61,6 +62,7 @@ namespace PingPongConsole
             Console.Write(" /___| |_| |_\\__,_|\\_, \\___|_| /__/");
             Console.SetCursorPosition(posX, 17);
             Console.WriteLine("                   |__/         ");
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
 

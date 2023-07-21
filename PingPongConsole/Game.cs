@@ -25,12 +25,14 @@ namespace PingPongConsole
         private bool _isScore = false;
         private bool _isGameOver = false;
         private int _ballDirection = -1;
+        private bool _isSinglePlayer =false;
         
         private int _rows;
         private int _columns;
 
         private int _scorePlayerOne = 0;
         private int _scorePlayerTwo = 0;
+        private int _aiPlayerDirection = 0;
 
 
         public Game(int rows = 26, int columns = 100)
@@ -66,6 +68,7 @@ namespace PingPongConsole
             do
             {
                 _inputHandler.UserInputMovement();
+
             } while (!_isGameOver);
         }
 
@@ -97,6 +100,9 @@ namespace PingPongConsole
             {
                 case "one":
                     _inputHandler = new InputHandlerClass(_playerOne,  _field);
+                    _isSinglePlayer = true;
+                    Random r = new Random();
+                    _aiPlayerDirection = r.Next(0, 2);
                     break;
                 case "two":
                     _inputHandler = new InputHandlerClass(_playerOne, _playerTwo, _field);
@@ -116,6 +122,12 @@ namespace PingPongConsole
                 Console.SetCursorPosition(0, 0);
                 CheckIsGameOver();
                 PrintScoreCard();
+                
+                if (_isSinglePlayer)
+                {
+
+                    AiPlayer();
+                }
 
                 _field.RemoveBallFromBoard(_ball);
                 _ball.BallMovement();
@@ -231,6 +243,36 @@ namespace PingPongConsole
             _ballDirection *= -1;
             _ball.BallVelocity = new PixelPoint(0, _ballDirection);
             _isScore = false;
+
+        }
+
+        public void AiPlayer()
+        {
+
+            if ( _aiPlayerDirection==0 && 1 < _playerTwo.PlayerPosition.Row)
+            {
+                _field.RemovePlayerFromBoard(_playerTwo);
+                _playerTwo.MoveUp();
+                _field.AddPlayerToBoard(_playerTwo);
+            }
+
+
+            if (_aiPlayerDirection == 1 && _field.TableRows - 5 > _playerTwo.PlayerPosition.Row)
+            {
+                _field.RemovePlayerFromBoard(_playerTwo);
+                _playerTwo.MoveDown();
+                _field.AddPlayerToBoard(_playerTwo);
+            }
+
+            if (_playerTwo.PlayerPosition.Row == 1)
+            {
+                _aiPlayerDirection = 1;
+            }
+
+            if (_field.TableRows - 5 == _playerTwo.PlayerPosition.Row)
+            {
+                _aiPlayerDirection = 0;
+            }
 
         }
     }
