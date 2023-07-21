@@ -38,7 +38,7 @@ namespace PingPongConsole
             Console.SetCursorPosition(posX, 8);
             Console.Write(" / | | _ \\ |__ _ _  _ ___ _ _ ");
             Console.SetCursorPosition(posX, 9);
-            Console.Write(" | | |  _/ / _` | || / -_) '_|");
+            Console.Write(" | | |  _/ / o` | || / o_) '_|");
             Console.SetCursorPosition(posX, 10);
             Console.Write(" |_| |_| |_\\__,_|\\_, \\___|_|  ");
             Console.SetCursorPosition(posX, 11);
@@ -56,7 +56,7 @@ namespace PingPongConsole
             Console.SetCursorPosition(posX, 14);
             Console.Write(" |_  ) | _ \\ |__ _ _  _ ___ _ _ ___");
             Console.SetCursorPosition(posX, 15);
-            Console.Write("  / /  |  _/ / _` | || / -_) '_(_-<");
+            Console.Write("  / /  |  _/ / o` | || / o_) '_(_-<");
             Console.SetCursorPosition(posX, 16);
             Console.Write(" /___| |_| |_\\__,_|\\_, \\___|_| /__/");
             Console.SetCursorPosition(posX, 17);
